@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(msbuild:*)",
+      "Bash(dotnet build)",
+      "Bash(build.bat Debug x86)",
+      "Bash(cmd.exe:*)",
+      "Bash(where:*)",
+      "Bash(dir:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(UHFReader288Demo.exe)"
+    ],
+    "deny": []
+  }
+}
