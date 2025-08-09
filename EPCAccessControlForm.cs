@@ -370,6 +370,5 @@ namespace UHFReader288Demo
             }
         }
 
-
     }
 }
