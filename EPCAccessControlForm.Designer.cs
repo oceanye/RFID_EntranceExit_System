@@ -45,6 +45,17 @@ namespace UHFReader288Demo
             this.ComboBox_PowerDbm = new System.Windows.Forms.ComboBox();
             this.BT_DBM = new System.Windows.Forms.Button();
             this.lblPower = new System.Windows.Forms.Label();
+            this.txtDeviceName = new System.Windows.Forms.TextBox();
+            this.lblDeviceName = new System.Windows.Forms.Label();
+            this.cmbEntryStatus = new System.Windows.Forms.ComboBox();
+            this.lblEntryStatus = new System.Windows.Forms.Label();
+            this.cmbExitStatus = new System.Windows.Forms.ComboBox();
+            this.lblExitStatus = new System.Windows.Forms.Label();
+            this.btnRefreshStatus = new System.Windows.Forms.Button();
+            this.lblServerStatus = new System.Windows.Forms.Label();
+            this.btnClearPending = new System.Windows.Forms.Button();
+            this.btnTestAssembleId = new System.Windows.Forms.Button();
+            this.btnTestConnection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +64,7 @@ namespace UHFReader288Demo
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(560, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(660, 300);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnStart
@@ -227,11 +238,124 @@ namespace UHFReader288Demo
             this.lblPower.TabIndex = 14;
             this.lblPower.Text = "功率设置";
             // 
+            // txtDeviceName
+            // 
+            this.txtDeviceName.Location = new System.Drawing.Point(12, 450);
+            this.txtDeviceName.Name = "txtDeviceName";
+            this.txtDeviceName.Size = new System.Drawing.Size(120, 20);
+            this.txtDeviceName.TabIndex = 15;
+            this.txtDeviceName.Text = "PDA_001";
+            // 
+            // lblDeviceName
+            // 
+            this.lblDeviceName.AutoSize = true;
+            this.lblDeviceName.Location = new System.Drawing.Point(12, 430);
+            this.lblDeviceName.Name = "lblDeviceName";
+            this.lblDeviceName.Size = new System.Drawing.Size(55, 13);
+            this.lblDeviceName.TabIndex = 16;
+            this.lblDeviceName.Text = "设备名称";
+            // 
+            // cmbEntryStatus
+            // 
+            this.cmbEntryStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEntryStatus.FormattingEnabled = true;
+            this.cmbEntryStatus.Location = new System.Drawing.Point(150, 450);
+            this.cmbEntryStatus.Name = "cmbEntryStatus";
+            this.cmbEntryStatus.Size = new System.Drawing.Size(120, 21);
+            this.cmbEntryStatus.TabIndex = 17;
+            // 
+            // lblEntryStatus
+            // 
+            this.lblEntryStatus.AutoSize = true;
+            this.lblEntryStatus.Location = new System.Drawing.Point(150, 430);
+            this.lblEntryStatus.Name = "lblEntryStatus";
+            this.lblEntryStatus.Size = new System.Drawing.Size(67, 13);
+            this.lblEntryStatus.TabIndex = 18;
+            this.lblEntryStatus.Text = "进入时状态";
+            // 
+            // cmbExitStatus
+            // 
+            this.cmbExitStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbExitStatus.FormattingEnabled = true;
+            this.cmbExitStatus.Location = new System.Drawing.Point(290, 450);
+            this.cmbExitStatus.Name = "cmbExitStatus";
+            this.cmbExitStatus.Size = new System.Drawing.Size(120, 21);
+            this.cmbExitStatus.TabIndex = 19;
+            // 
+            // lblExitStatus
+            // 
+            this.lblExitStatus.AutoSize = true;
+            this.lblExitStatus.Location = new System.Drawing.Point(290, 430);
+            this.lblExitStatus.Name = "lblExitStatus";
+            this.lblExitStatus.Size = new System.Drawing.Size(67, 13);
+            this.lblExitStatus.TabIndex = 20;
+            this.lblExitStatus.Text = "离开时状态";
+            // 
+            // btnRefreshStatus
+            // 
+            this.btnRefreshStatus.Location = new System.Drawing.Point(430, 450);
+            this.btnRefreshStatus.Name = "btnRefreshStatus";
+            this.btnRefreshStatus.Size = new System.Drawing.Size(90, 23);
+            this.btnRefreshStatus.TabIndex = 21;
+            this.btnRefreshStatus.Text = "刷新状态配置";
+            this.btnRefreshStatus.UseVisualStyleBackColor = true;
+            this.btnRefreshStatus.Click += new System.EventHandler(this.btnRefreshStatus_Click);
+            // 
+            // lblServerStatus
+            // 
+            this.lblServerStatus.AutoSize = true;
+            this.lblServerStatus.Location = new System.Drawing.Point(430, 430);
+            this.lblServerStatus.Name = "lblServerStatus";
+            this.lblServerStatus.Size = new System.Drawing.Size(67, 13);
+            this.lblServerStatus.TabIndex = 22;
+            this.lblServerStatus.Text = "服务器状态";
+            // 
+            // btnClearPending
+            // 
+            this.btnClearPending.Location = new System.Drawing.Point(430, 480);
+            this.btnClearPending.Name = "btnClearPending";
+            this.btnClearPending.Size = new System.Drawing.Size(90, 23);
+            this.btnClearPending.TabIndex = 23;
+            this.btnClearPending.Text = "检测中状态";
+            this.btnClearPending.UseVisualStyleBackColor = true;
+            this.btnClearPending.Click += new System.EventHandler(this.btnShowPending_Click);
+            // 
+            // btnTestAssembleId
+            // 
+            this.btnTestAssembleId.Location = new System.Drawing.Point(530, 450);
+            this.btnTestAssembleId.Name = "btnTestAssembleId";
+            this.btnTestAssembleId.Size = new System.Drawing.Size(90, 23);
+            this.btnTestAssembleId.TabIndex = 24;
+            this.btnTestAssembleId.Text = "测试查询ID";
+            this.btnTestAssembleId.UseVisualStyleBackColor = true;
+            this.btnTestAssembleId.Click += new System.EventHandler(this.btnTestAssembleId_Click);
+            // 
+            // btnTestConnection
+            // 
+            this.btnTestConnection.Location = new System.Drawing.Point(530, 480);
+            this.btnTestConnection.Name = "btnTestConnection";
+            this.btnTestConnection.Size = new System.Drawing.Size(90, 23);
+            this.btnTestConnection.TabIndex = 25;
+            this.btnTestConnection.Text = "API诊断";
+            this.btnTestConnection.UseVisualStyleBackColor = true;
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            // 
             // EPCAccessControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 441);
+            this.ClientSize = new System.Drawing.Size(684, 520);
+            this.Controls.Add(this.btnTestConnection);
+            this.Controls.Add(this.btnTestAssembleId);
+            this.Controls.Add(this.btnClearPending);
+            this.Controls.Add(this.lblServerStatus);
+            this.Controls.Add(this.btnRefreshStatus);
+            this.Controls.Add(this.lblExitStatus);
+            this.Controls.Add(this.cmbExitStatus);
+            this.Controls.Add(this.lblEntryStatus);
+            this.Controls.Add(this.cmbEntryStatus);
+            this.Controls.Add(this.lblDeviceName);
+            this.Controls.Add(this.txtDeviceName);
             this.Controls.Add(this.lblPower);
             this.Controls.Add(this.BT_DBM);
             this.Controls.Add(this.ComboBox_PowerDbm);
@@ -273,5 +397,16 @@ namespace UHFReader288Demo
         private System.Windows.Forms.ComboBox ComboBox_PowerDbm;
         private System.Windows.Forms.Button BT_DBM;
         private System.Windows.Forms.Label lblPower;
+        private System.Windows.Forms.TextBox txtDeviceName;
+        private System.Windows.Forms.Label lblDeviceName;
+        private System.Windows.Forms.ComboBox cmbEntryStatus;
+        private System.Windows.Forms.Label lblEntryStatus;
+        private System.Windows.Forms.ComboBox cmbExitStatus;
+        private System.Windows.Forms.Label lblExitStatus;
+        private System.Windows.Forms.Button btnRefreshStatus;
+        private System.Windows.Forms.Label lblServerStatus;
+        private System.Windows.Forms.Button btnClearPending;
+        private System.Windows.Forms.Button btnTestAssembleId;
+        private System.Windows.Forms.Button btnTestConnection;
     }
 }

@@ -31,10 +31,14 @@ namespace UHFReader288Demo
         /// </summary>
         public static void ShowAccessControlForm()
         {
-            if (!isInitialized)
-                Initialize();
+            // 检查窗口是否已释放，如果是则重新创建
+            if (accessControlForm == null || accessControlForm.IsDisposed)
+            {
+                accessControlForm = new EPCAccessControlForm();
+                isInitialized = true;
+            }
 
-            if (accessControlForm != null && !accessControlForm.IsDisposed)
+            if (accessControlForm != null)
             {
                 accessControlForm.Show();
                 if (accessControlForm.WindowState == System.Windows.Forms.FormWindowState.Minimized)
@@ -64,7 +68,14 @@ namespace UHFReader288Demo
         /// <param name="detectionTime">检测时间</param>
         public static void ProcessTagDetection(string epc, int antenna, DateTime detectionTime)
         {
-            if (isInitialized && accessControlForm != null && !accessControlForm.IsDisposed)
+            // 确保窗口可用，如果已释放则重新创建
+            if (accessControlForm == null || accessControlForm.IsDisposed)
+            {
+                accessControlForm = new EPCAccessControlForm();
+                isInitialized = true;
+            }
+            
+            if (accessControlForm != null)
             {
                 accessControlForm.ProcessTagDetection(epc, antenna, detectionTime);
             }
@@ -77,7 +88,14 @@ namespace UHFReader288Demo
         /// <param name="online">是否在线</param>
         public static void SetAntennaStatus(int antenna, bool online)
         {
-            if (isInitialized && accessControlForm != null && !accessControlForm.IsDisposed)
+            // 确保窗口可用，如果已释放则重新创建
+            if (accessControlForm == null || accessControlForm.IsDisposed)
+            {
+                accessControlForm = new EPCAccessControlForm();
+                isInitialized = true;
+            }
+            
+            if (accessControlForm != null)
             {
                 accessControlForm.SetAntennaStatus(antenna, online);
             }
@@ -89,11 +107,13 @@ namespace UHFReader288Demo
         /// <returns>调试信息字符串</returns>
         public static string GetDebugInfo()
         {
-            if (isInitialized && accessControlForm != null && !accessControlForm.IsDisposed)
+            // 确保窗口可用，如果已释放则重新创建
+            if (accessControlForm == null || accessControlForm.IsDisposed)
             {
-                return accessControlForm.GetDebugInfo();
+                return "EPC门禁系统窗口已关闭";
             }
-            return "EPC门禁系统未初始化";
+            
+            return accessControlForm.GetDebugInfo();
         }
 
         /// <summary>

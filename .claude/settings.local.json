@@ -8,7 +8,11 @@
       "Bash(where:*)",
       "Bash(dir:*)",
       "Bash(powershell.exe:*)",
-      "Bash(UHFReader288Demo.exe)"
+      "Bash(UHFReader288Demo.exe)",
+      "Bash(dotnet build:*)",
+      "Bash(powershell:*)",
+      "Bash(build.bat Debug AnyCPU)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
